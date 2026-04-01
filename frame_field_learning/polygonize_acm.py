@@ -296,7 +296,7 @@ def shapely_postprocess(contours, u, v, np_indicator, tolerance, config):
 
         # Find polygons:
         polygons, dangles, cuts, invalids = shapely.ops.polygonize_full(multi_line_string)
-        polygons = list(polygons)
+        polygons = list(polygons.geoms)
 
         # debug_print("Remove small polygons")
 
