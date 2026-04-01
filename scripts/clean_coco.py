@@ -43,7 +43,7 @@ def get_args():
 
 def clean_one(im_data):
     img, dts = im_data
-    seg_image = np.zeros((img["height"], img["width"]), dtype=np.float)
+    seg_image = np.zeros((img["height"], img["width"]), dtype=np.float64)
     mask_image = np.zeros((img["height"], img["width"]), dtype=np.uint8)
 
     # Rank detections by score first

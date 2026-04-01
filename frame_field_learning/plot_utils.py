@@ -142,7 +142,7 @@ def plot_polygons(axis, polygons, polygon_probs=None, draw_vertices=True, linewi
             [0, 1, 0.5, 1],
         ]
     colors = random.choices(color_choices, k=len(patches))
-    edgecolors = np.array(colors, dtype=np.float)
+    edgecolors = np.array(colors, dtype=np.float64)
     facecolors = edgecolors.copy()
     if polygon_probs is not None:
         facecolors[:, -1] = alpha * np.array(polygon_probs) + 0.1

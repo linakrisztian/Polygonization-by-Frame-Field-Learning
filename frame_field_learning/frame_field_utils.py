@@ -79,7 +79,7 @@ def detect_corners(polylines, u, v):
         if points.shape[0] == 0:
             return np.empty(0, dtype=np.bool)
 
-        coords = np.round(points).astype(np.int)
+        coords = np.round(points).astype(np.int32)
         coords[:, 0] = np.clip(coords[:, 0], 0, u.shape[0] - 1)
         coords[:, 1] = np.clip(coords[:, 1], 0, u.shape[1] - 1)
         left_u_score = compute_direction_score(coords, left_edges, u)

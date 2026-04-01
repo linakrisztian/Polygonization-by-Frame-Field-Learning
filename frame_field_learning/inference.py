@@ -15,7 +15,7 @@ from lydorn_utils import python_utils
 
 
 def network_inference(config, model, batch):
-    batch = local_utils.batch_to_cuda(batch)
+    batch = local_utils.batch_to_cpu(batch)
     pred, batch = model(batch, tta=config["eval_params"]["test_time_augmentation"])
     return pred, batch
 
@@ -99,7 +99,7 @@ def inference_with_patching(config, model, tile_data):
                                                                       patch_res=config["eval_params"]["patch_size"])
         # Compute patch pixel weights to merge overlapping patches back together smoothly:
         patch_weights = np.ones((config["eval_params"]["patch_size"] + 2, config["eval_params"]["patch_size"] + 2),
-                                dtype=np.float)
+                                dtype=np.float64)
         patch_weights[0, :] = 0
         patch_weights[-1, :] = 0
         patch_weights[:, 0] = 0

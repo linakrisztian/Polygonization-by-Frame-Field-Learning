@@ -181,7 +181,7 @@ def run_one(seg_filepath, out_dirpath, config, im_dirpath, out_ext=None, bbox=No
     if seg.dtype == np.uint8:
         seg = seg / 255
     elif seg.dtype == np.bool:
-        seg = seg.astype(np.float)
+        seg = seg.astype(np.float64)
 
     # Select bbox for dev
     if bbox is not None:
